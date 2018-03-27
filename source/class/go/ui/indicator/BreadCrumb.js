@@ -1,5 +1,15 @@
 /**
  * This widget shows a path as breadcrumb navigation
+ *
+ * Example:
+ * <pre class='javascript'>
+ *  var breadcrumb = new go.ui.indicator.BreadCrumb()
+ *  var model = []
+ *  model.push(new go.data.PathItem('Qooxdoo', qx.util.ResourceManager.getInstance().toUri('go/ui/indicator/test.png')))
+ *  model.push(new go.data.PathItem('Widgetbrowser'))
+ *  model.push(new go.data.PathItem('Breadcrumbs'))
+ *  breadcrumb.setPath(model)
+ * </pre>
  */
 qx.Class.define('go.ui.indicator.BreadCrumb', {
   extend: qx.ui.core.Widget,

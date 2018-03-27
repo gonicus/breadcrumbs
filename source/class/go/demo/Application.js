@@ -48,19 +48,19 @@ qx.Class.define('go.demo.Application', {
       -------------------------------------------------------------------------
       */
 
-      var breadcrump = new go.ui.indicator.BreadCrumb()
+      var breadcrumb = new go.ui.indicator.BreadCrumb()
 
       var model = []
       model.push(new go.data.PathItem('Qooxdoo', qx.util.ResourceManager.getInstance().toUri('go/ui/indicator/test.png')))
       model.push(new go.data.PathItem('Widgetbrowser'))
       model.push(new go.data.PathItem('Breadcrumbs'))
-      breadcrump.setPath(model)
+      breadcrumb.setPath(model)
 
       // Document is the application root
       var doc = this.getRoot()
 
       // Add button to document at fixed coordinates
-      doc.add(breadcrump, {left: 100, top: 50})
+      doc.add(breadcrumb, {left: 100, top: 50})
     }
   }
 })
