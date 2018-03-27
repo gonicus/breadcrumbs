@@ -1,0 +1,34 @@
+{
+  "info" : 
+  {
+    "name" : "breadcrumbs",
+
+    "summary" : "Breadcrump contribution",
+    "description" : "Adds a breadcrump navigation indicator widget.",
+    
+    "homepage" : "https://www.gonicus.de/",
+
+    "license" : "MIT",
+    "authors" : 
+    [
+      {
+        "name" : "Gonicus GmbH",
+        "email" : "info@gonicus.de"
+      }
+    ],
+
+    "version" : "master",
+    "qooxdoo-versions": ["6.0.0-alpha"]
+  },
+  
+  "provides" : 
+  {
+    "namespace"   : "go.ui.indicator",
+    "encoding"    : "utf-8",
+    "class"       : "source/class",
+    "resource"    : "source/resource",
+    "translation" : "source/translation",
+    "type"        : "application"
+  }
+}
+
