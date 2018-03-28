@@ -8,7 +8,7 @@ qx.Theme.define('go.ui.indicator.theme.Appearance', {
       style: function () {
         return {
           minHeight: 38,
-          backgroundColor: 'lightgray-dark',
+          backgroundColor: 'bc-background',
           decorator: 'bread-crumb'
         }
       }
@@ -20,7 +20,7 @@ qx.Theme.define('go.ui.indicator.theme.Appearance', {
           padding: 0,
           margin: 0,
           backgroundColor: states.forelast || states.last ? 'transparent' : (
-            states.nextpressed ? 'aqua-light' : 'aqua-dark')
+            states.nextpressed ? 'bc-item-background-hovered' : 'bc-item-background')
         }
       }
     },
@@ -29,12 +29,12 @@ qx.Theme.define('go.ui.indicator.theme.Appearance', {
       include: 'atom',
       alias: 'atom',
       style: function (states) {
-        var background = 'aqua-dark'
+        var background = 'bc-item-background'
 
         if (states.last) {
           background = 'transparent'
         } else if (states.hovered) {
-          background = 'aqua-light'
+          background = 'bc-item-background-hovered'
         }
 
         return {
@@ -42,7 +42,7 @@ qx.Theme.define('go.ui.indicator.theme.Appearance', {
           paddingLeft: 6,
           paddingRight: 6,
           backgroundColor: background,
-          textColor: states.last ? 'darkgray-dark' : 'white'
+          textColor: states.last ? 'bc-item-text' : 'white'
         }
       }
     },

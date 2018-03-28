@@ -7,7 +7,7 @@ qx.Theme.define('go.ui.indicator.theme.Decoration', {
     {
       style: {
         width: 1,
-        color: 'lightgray-dark',
+        color: 'bc-background',
         radius: 4
       }
     },
@@ -31,7 +31,7 @@ qx.Theme.define('go.ui.indicator.theme.Decoration', {
     {
       style: {
         width: [18, 0, 18, 11],
-        color: ['transparent', 'aqua-dark', 'transparent', 'aqua-dark']
+        color: ['transparent', 'bc-item-background', 'transparent', 'bc-item-background']
       }
     },
 
@@ -39,7 +39,7 @@ qx.Theme.define('go.ui.indicator.theme.Decoration', {
     {
       include: 'bread-crumb-item-arrow-inner',
       style: {
-        color: ['transparent', 'aqua-light', 'transparent', 'aqua-light']
+        color: ['transparent', 'bc-arrow-inner', 'transparent', 'bc-arrow-inner']
       }
     }
   }
