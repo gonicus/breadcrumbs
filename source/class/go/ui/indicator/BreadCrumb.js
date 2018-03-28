@@ -81,6 +81,7 @@ qx.Class.define('go.ui.indicator.BreadCrumb', {
 
         item.setModel(data[i])
 
+        item.removeState('first')
         item.removeState('forelast')
         item.removeState('last')
 
@@ -93,6 +94,7 @@ qx.Class.define('go.ui.indicator.BreadCrumb', {
 
       if (data.length) {
         children = this._getChildren()
+        children[0].addState('first')
         if (data.length > 1) {
           children[data.length - 2].addState('forelast')
         }

@@ -72,15 +72,16 @@ qx.Class.define('go.ui.indicator.BreadCrumbItem', {
      * @lint ignoreReferenceField(_forwardStates)
      */
     _forwardStates: {
+      first: true,
       last: true,
       forelast: true,
       hovered: true
     },
 
     _applyModel: function (model) {
-      if (model.getName() || model.getIcon()) {
+      if (model.getLabel() || model.getIcon()) {
         this.getChildControl('atom').set({
-          label: model.getName(),
+          label: model.getLabel(),
           icon: model.getIcon()
         })
       }

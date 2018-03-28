@@ -23,12 +23,12 @@
   
   "provides" : 
   {
-    "namespace"   : "go.ui.indicator",
+    "namespace"   : "go",
     "encoding"    : "utf-8",
     "class"       : "source/class",
     "resource"    : "source/resource",
     "translation" : "source/translation",
-    "type"        : "application"
+    "type"        : "library"
   }
 }
 

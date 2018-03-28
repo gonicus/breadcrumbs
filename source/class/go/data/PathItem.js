@@ -11,10 +11,10 @@ qx.Class.define('go.data.PathItem', {
      CONSTRUCTOR
   *****************************************************************************
   */
-  construct: function (name, icon) {
+  construct: function (label, icon) {
     this.base(arguments)
-    if (name) {
-      this.setName(name)
+    if (label) {
+      this.setLabel(label)
     }
     if (icon) {
       this.setIcon(icon)
@@ -27,7 +27,7 @@ qx.Class.define('go.data.PathItem', {
   *****************************************************************************
   */
   properties: {
-    name: {
+    label: {
       check: 'String',
       nullable: true
     },
