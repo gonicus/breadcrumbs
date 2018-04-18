@@ -49,7 +49,7 @@ qx.Class.define('go.ui.indicator.BreadCrumb', {
       init: null,
       check: 'Array',
       nullable: true,
-      apply: '_applyPath'
+      apply: 'refresh'
     }
   },
 
@@ -63,13 +63,14 @@ qx.Class.define('go.ui.indicator.BreadCrumb', {
       this.fireDataEvent('selected', ev.getData())
     },
 
-    // property apply
-    _applyPath: function (data) {
+    refresh: function () {
       var children = this._getChildren()
       var item
       var precedingItem
+      var data = this.getPath()
+      var length = data.length
 
-      for (var i = 0, l = data.length; i < l; i++) {
+      for (var i = 0; i < length; i++) {
         if (children[i]) {
           item = children[i]
           item.show()
@@ -92,17 +93,17 @@ qx.Class.define('go.ui.indicator.BreadCrumb', {
         precedingItem = item
       }
 
-      if (data.length) {
+      if (length) {
         children = this._getChildren()
         children[0].addState('first')
-        if (data.length > 1) {
-          children[data.length - 2].addState('forelast')
+        if (length > 1) {
+          children[length - 2].addState('forelast')
         }
-        children[data.length - 1].addState('last')
+        children[length - 1].addState('last')
       }
 
-      for (i = data.length, l = children.length; i < l; i++) {
-        children[i].exclude()
+      for (var k = length, l = children.length; k < l; k++) {
+        children[k].exclude()
       }
     }
   }
