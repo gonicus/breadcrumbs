@@ -36,5 +36,22 @@ qx.Class.define('go.data.PathItem', {
       check: 'String',
       nullable: true
     }
+  },
+
+  /*
+  *****************************************************************************
+     MEMBERS
+  *****************************************************************************
+  */
+  members: {
+    __path: null,
+
+    setPath: function (val) {
+      this.__path = val;
+    },
+
+    getPath: function () {
+      return this.__path;
+    }
   }
 })

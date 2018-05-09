@@ -12,6 +12,7 @@ qx.Interface.define('go.data.IPathItem', {
   */
   members: {
     getLabel: function () {},
-    getIcon: function () {}
+    getIcon: function () {},
+    getPath: function () {}
   }
 })
