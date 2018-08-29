@@ -11,8 +11,28 @@ qx.Interface.define('go.data.IPathItem', {
   *****************************************************************************
   */
   members: {
+    /**
+     * Return the label for the path item
+     * @returns {String}
+     */
     getLabel: function () {},
+
+    /**
+     * Icon to use as image source
+     * @returns {String}
+     */
     getIcon: function () {},
-    getPath: function () {}
+
+    /**
+     * Path to the current item as '/' separated string
+     * @returns {String}
+     */
+    getPath: function () {},
+
+    /**
+     * Highlight the breadcrump item
+     * @returns {Boolean}
+     */
+    isHighlighted: function () {}
   }
 })

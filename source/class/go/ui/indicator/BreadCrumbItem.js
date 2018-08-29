@@ -55,7 +55,8 @@ qx.Class.define('go.ui.indicator.BreadCrumbItem', {
     preceding: {
       init: null,
       check: 'go.ui.indicator.BreadCrumbItem',
-      nullable: true
+      nullable: true,
+      apply: '_applyPrecending'
     }
   },
 
@@ -75,15 +76,39 @@ qx.Class.define('go.ui.indicator.BreadCrumbItem', {
       first: true,
       last: true,
       forelast: true,
-      hovered: true
+      hovered: true,
+      highlight: true
     },
 
-    _applyModel: function (model) {
-      if (model.getLabel() || model.getIcon()) {
-        this.getChildControl('atom').set({
-          label: model.getLabel(),
-          icon: model.getIcon()
-        })
+    _applyModel: function (model, old) {
+      if (old && old.isHighlighted()) {
+        this.removeState('highlight');
+        if (this.getPreceding()) {
+          this.getPreceding().removeState('nexthighlight');
+        }
+      }
+      if (model) {
+        if (model.getLabel() || model.getIcon()) {
+          this.getChildControl('atom').set({
+            label: model.getLabel(),
+            icon: model.getIcon()
+          })
+          if (model.isHighlighted()) {
+            this.addState('highlight');
+            if (this.getPreceding()) {
+              this.addState('nexthighlight');
+            }
+          }
+        }
+      }
+    },
+
+    _applyPrecending: function (value, old) {
+      if (old) {
+        old.removeState('nexthighlight')
+      }
+      if (value && this.getModel().isHighlighted('highlight')) {
+        value.addState('nexthighlight');
       }
     },
 

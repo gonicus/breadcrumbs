@@ -103,6 +103,8 @@ qx.Class.define('go.ui.indicator.BreadCrumb', {
       }
 
       for (var k = length, l = children.length; k < l; k++) {
+        children[k].resetModel()
+        children[k].resetPreceding()
         children[k].exclude()
       }
     }

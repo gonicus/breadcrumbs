@@ -35,6 +35,11 @@ qx.Class.define('go.data.PathItem', {
     icon: {
       check: 'String',
       nullable: true
+    },
+
+    highlighted: {
+      check: 'Boolean',
+      init: false
     }
   },
 
@@ -47,11 +52,11 @@ qx.Class.define('go.data.PathItem', {
     __path: null,
 
     setPath: function (val) {
-      this.__path = val;
+      this.__path = val
     },
 
     getPath: function () {
-      return this.__path;
+      return this.__path
     }
   }
 })
