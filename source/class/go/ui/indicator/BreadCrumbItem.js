@@ -139,6 +139,7 @@ qx.Class.define('go.ui.indicator.BreadCrumbItem', {
       switch (id) {
         case 'atom':
           control = new qx.ui.basic.Atom()
+          control._forwardStates.last = true
           control.setRich(true)
           this._add(control)
           break
