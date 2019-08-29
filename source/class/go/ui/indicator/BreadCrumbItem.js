@@ -23,6 +23,10 @@ qx.Class.define('go.ui.indicator.BreadCrumbItem', {
     this.addListener('pointerover', this._onPointerOver)
     this.addListener('pointerout', this._onPointerOut)
     this.addListener('pointerup', this._onPointerUp)
+
+    if (qx.core.Environment.get('qx.dynlocale')) {
+        qx.locale.Manager.getInstance().addListener("changeLocale", this._onChangeLocale, this)
+    }
   },
 
   /*
@@ -80,6 +84,13 @@ qx.Class.define('go.ui.indicator.BreadCrumbItem', {
       highlight: true
     },
 
+    _onChangeLocale: function () {
+      var model = this.getModel()
+      if (model && model.getLabel() && model.getLabel().translate) {
+        this.getChildControl('atom').setLabel(model.getLabel().translate());
+      }
+    },
+
     _applyModel: function (model, old) {
       if (old && old.isHighlighted()) {
         this.removeState('highlight');
@@ -90,7 +101,7 @@ qx.Class.define('go.ui.indicator.BreadCrumbItem', {
       if (model) {
         if (model.getLabel() || model.getIcon()) {
           this.getChildControl('atom').set({
-            label: model.getLabel(),
+            label: model.getLabel() && model.getLabel().translate ? model.getLabel().translate() : model.getLabel(),
             icon: model.getIcon()
           })
           if (model.isHighlighted()) {
@@ -139,6 +150,9 @@ qx.Class.define('go.ui.indicator.BreadCrumbItem', {
       switch (id) {
         case 'atom':
           control = new qx.ui.basic.Atom()
+          control.addListener('resize', function (ev) {
+            console.log(control.getLabel(), ev.getData());
+          });
           control._forwardStates.last = true
           control.setRich(true)
           this._add(control)
@@ -167,5 +181,8 @@ qx.Class.define('go.ui.indicator.BreadCrumbItem', {
   destruct: function () {
     this._disposeObjects('_arrowContainer')
     this._callback = null
+    if (qx.core.Environment.get("qx.dynlocale")) {
+      qx.locale.Manager.getInstance().removeListener("changeLocale", this._onChangeLocale, this);
+    }
   }
 })
