@@ -150,9 +150,6 @@ qx.Class.define('go.ui.indicator.BreadCrumbItem', {
       switch (id) {
         case 'atom':
           control = new qx.ui.basic.Atom()
-          control.addListener('resize', function (ev) {
-            console.log(control.getLabel(), ev.getData());
-          });
           control._forwardStates.last = true
           control.setRich(true)
           this._add(control)
